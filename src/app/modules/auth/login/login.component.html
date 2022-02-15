@@ -1,0 +1,74 @@
+<form [formGroup]="logInForm" (ngSubmit)="onSubmit()" class="form">
+  <div formGroupName="user">
+    <div class="form-group">
+      <span class="form-help-text"
+            *ngIf="logInForm.get('user')?.get('email')?.untouched
+            || logInForm.get('user')?.get('email')?.valid">
+        <span class="text-help" *ngIf="helpWhenInputIsInFocus.get('email')">
+          Подсказка: Введите ваше имя
+        </span>
+      </span>
+      <span class="form-help-text"
+            *ngIf="logInForm.get('user')?.get('email')?.invalid
+            && logInForm.get('user')?.get('email')?.touched">
+        <span class="text-danger" *ngIf="logInForm.get('user')?.get('email')?.errors?.['required']">
+          Email не может быть пустым!
+        </span>
+        <span class="text-danger" *ngIf="logInForm.get('user')?.get('email')?.errors?.['email']">
+          Введит корректный email!
+        </span>
+      </span>
+      <div class="text-field">
+        <label for="after" class="l-after">Email</label>
+        <input type="text" class="form-control" formControlName="email"
+               inputControlDirective
+               [class.is-invalid]="logInForm.get('user')?.get('email')?.invalid
+               && logInForm.get('user')?.get('email')?.touched"
+               (focus)="showHelp('email')" (blur)="showHelp('email')">
+      </div>
+    </div>
+    <div class="form-group">
+      <span class="form-help-text"
+            *ngIf="logInForm.get('user')?.get('password')?.untouched
+            || logInForm.get('user')?.get('password')?.valid">
+        <span class="text-help" *ngIf="helpWhenInputIsInFocus.get('password')">
+          Подсказка: Введите ваше имя
+        </span>
+      </span>
+      <span class="form-help-text"
+            *ngIf="logInForm.get('user')?.get('password')?.invalid
+            && logInForm.get('user')?.get('password')?.touched">
+        <span class="text-danger" *ngIf="logInForm.get('user')?.get('password')?.errors?.['required']">
+          Пароль не может быть пустым!
+        </span>
+        <span class="text-danger" *ngIf="logInForm.get('user')?.get('password')?.errors?.['minlength']">
+          Пароль не может быть меньше
+          {{logInForm.get('user')?.get('password')?.errors?.['minlength']?.requiredLength}} символов!
+        </span>
+        <span class="text-danger" *ngIf="logInForm.get('user')?.get('password')?.errors?.['pattern']">
+          Пароль должен содержать одну заглавную букву!
+        </span>
+      </span>
+      <div class="text-field">
+        <label for="after" class="l-after">Пароль</label>
+        <input type="{{visiblePas}}" class="form-control" formControlName="password"
+               inputControlDirective
+               [class.is-invalid]="logInForm.get('user')?.get('password')?.invalid
+               && logInForm.get('user')?.get('password')?.touched"
+               (focus)="showHelp('password')" (blur)="showHelp('password')">
+        <img src="{{iconPassword}}" alt="" class="field-icon" (click)="visiblePassword()">
+      </div>
+    </div>
+    <div class="button_block">
+      <button type="submit" class="btn"
+              [class.btn-loading]="(visibleLoad$ | async)?.preLoader" [disabled]="logInForm.invalid">
+        <span *ngIf="!(visibleLoad$ | async)?.preLoader">Войти</span>
+        <img src="{{iconLoading}}" alt="" *ngIf="(visibleLoad$ | async)?.preLoader" class="loading-icon"
+             [@rotation]="stateRotation" (@rotation.done)="startRotation()">
+      </button>
+    </div>
+  </div>
+</form>
+
+
+

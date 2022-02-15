@@ -1,0 +1,31 @@
+.container{
+  min-height: 100vh;
+}
+.form_container{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.nav{
+  text-align: center;
+  margin-bottom: 20px;
+}
+.h-link{
+  font-size: 21px;
+  color: var(--help);
+}
+.h-link.active{
+  color: var(--inputColor);
+}
+.h-link ~ .h-link{
+  margin-left: 20px;
+}
+.alert-error{
+  position: fixed;
+  right: 40px;
+  bottom: 60px;
+  width: auto;
+  height: auto;
+  display: flex;
+}

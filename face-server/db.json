@@ -1,0 +1,90 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "userId": 2,
+      "title": "json-server",
+      "author": "typicode",
+      "data": [
+        {
+          "id": 1,
+          "text": "asdasdas"
+        },
+        {
+          "id": 2,
+          "text": "asdasdas"
+        },
+        {
+          "id": 3,
+          "text": "asdasdas"
+        }
+      ]
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "users": [
+    {
+      "email": "test@test.ru",
+      "password": "$2a$10$f6fqa6zIBfhrmTptI1msvuSSiZ7hRxfgUnnAv7HQ6CSdqYiV3RhRy",
+      "login": "testtest",
+      "id": 1
+    },
+    {
+      "email": "test2@test.ru",
+      "password": "$2a$10$Sr5DYPU7zv3umg3Bex9ltOSoEYuYtU5/Tv7AgOmaXj3x.MmPsha/C",
+      "login": "test22",
+      "id": 2
+    },
+    {
+      "email": "test3@test.ru",
+      "password": "$2a$10$zoQvxEwkHwxHT2oGTiKHYu0NtvsSM7glc9ejRqCkfttG0llbbs93.",
+      "login": "test33",
+      "id": 3
+    },
+    {
+      "email": "tes4@test.ru",
+      "password": "$2a$10$Q1yMLmVvIdlZxn38wf0owu9j2wGLRpTQtQObnCHxUBhU03XxU2gzu",
+      "login": "test44",
+      "id": 4
+    },
+    {
+      "email": "test5@test.ru",
+      "password": "$2a$10$UITYjnBOCVHatsVKGJyKqeMj4bLN8YAtQbrvQqyOjqeJFii5eMJea",
+      "login": "test55",
+      "id": 5
+    },
+    {
+      "email": "test6@test.ru",
+      "password": "$2a$10$zvPNjgoRv5bGNJpmSCm3YeQd1bGlNZ0I6r3G4LU4Lc1uhH/Kp29fS",
+      "login": "test666",
+      "id": 6
+    },
+    {
+      "email": "test7@test.ru",
+      "password": "$2a$10$2iiVHMi6k8TMSErvdeS3I.VjD000a7edft7kMQrUMo2OOkEQsYhM2",
+      "login": "asdas@asd",
+      "id": 7
+    },
+    {
+      "email": "test8@test.ru",
+      "password": "$2a$10$sSBRTUciBryOP1jK/Qq9.eMwTFU4dRzq4Wa4FsSyZlNuGMK1aRCKC",
+      "login": "asdasdas",
+      "id": 8
+    },
+    {
+      "email": "test9@test.ru",
+      "password": "$2a$10$9xLz.hQqsnE0mPPGqKyop.ggPDNsyjHYB3pnn7//sMe8DlIaY/EjO",
+      "login": "asdasdasd",
+      "id": 9
+    }
+  ]
+}

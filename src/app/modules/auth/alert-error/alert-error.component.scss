@@ -1,0 +1,37 @@
+.error{
+  display: flex;
+}
+.error-text{
+  color: var(--buttonColor);
+  padding: 20px 25px 20px 40px;
+  background-color: var(--grey);
+}
+.line{
+  position: absolute;
+  background-color: var(--buttonColor);
+  width: 12px;
+  height: 1px;
+}
+.line:first-child{
+  transform: rotate(45deg);
+}
+.line:last-child{
+  transform: rotate(-45deg);
+}
+.close {
+  position: absolute;
+  top: 10px;
+  right: 0px;
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+}
+.icon {
+  width: 16px;
+  height: 20px;
+  background: no-repeat;
+  object-position: center;
+  top: 16px;
+  left: 21px;
+  position: absolute
+}

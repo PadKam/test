@@ -1,0 +1,95 @@
+.form{
+  background: #ffffff;
+  width: 450px;
+  padding: 40px 75px;
+  border-radius: 10px;
+  border: 1px solid #E6ECF5;
+}
+a{
+  color: #7B08FC;
+}
+.title{
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: 600;
+  line-height: 2;
+}
+.subtitle{
+  text-align: center;
+  font-size: 1.2em;
+}
+.form-group ~ .form-group{
+  padding-top: 10px;
+}
+.button_block{
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+.form-control {
+  width: 100%;
+  height: 40px;
+  padding: 2px 9px;
+  border: 2px solid #E6ECF5;;
+  border-radius: 10px;
+  position: relative;
+  display: block;
+  padding-left: 90px;
+  color: var(--inputColor);
+}
+.l-after {
+  position: absolute;
+  z-index: 10;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  color: var(--help);
+}
+.field-icon{
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.loading-icon{
+  width: 14px;
+  height: 14px;
+}
+.btn{
+  background: #22A4DC 0% 0% no-repeat padding-box;
+  border-radius: 10px;
+  padding: 12px 25px;
+  border: transparent;
+  color: var(--buttonColor);
+}
+.btn:disabled{
+  opacity: .3;
+}
+.btn-loading{
+  padding: 13px 13px;
+  width: 40px;
+  line-height: 0;
+}
+.form-control:focus{
+  outline: none;
+  border-color: var(--focus);
+}
+.form-control.ng-valid{
+  border-color: var(--valid);
+}
+.form-control.is-invalid{
+  border-color: var(--inValid);
+}
+.form-help-text{
+  font-size: 0.65em;
+}
+.text-danger{
+  color: var(--inValid);
+}
+.text-help{
+  display: block;
+  color: var(--help);
+}
+

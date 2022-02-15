@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="form_container">
+    <div class="nav">
+      <a routerLink="registration" class="h-link" [class.active]="activLink" (click)="onActiveLink('/registration')">
+        Регистрация
+      </a>
+      <a routerLink="login" class="h-link" [class.active]="!activLink" (click)="onActiveLink('/login')">
+        Вход
+      </a>
+    </div>
+    <router-outlet></router-outlet>
+  </div>
+</div>
+<alert-error class="alert-error"
+            *ngIf="(errorHttp$ | async)?.alertError"
+            alertText="{{(errorHttp$ | async)?.alertText}}"></alert-error>

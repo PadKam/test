@@ -1,0 +1,100 @@
+<form [formGroup]="regForm" (ngSubmit)="onSubmit()" class="form">
+  <div formGroupName="user">
+    <div class="form-group">
+      <span class="form-help-text"
+            *ngIf="regForm.get('user')?.get('login')?.untouched
+            || regForm.get('user')?.get('login')?.valid">
+        <span class="text-help" *ngIf="helpWhenInputIsInFocus.get('login')">
+          Подсказка: Введите ваше имя
+        </span>
+      </span>
+      <span class="form-help-text"
+            *ngIf="regForm.get('user')?.get('login')?.invalid
+            && regForm.get('user')?.get('login')?.touched">
+        <span class="text-danger" *ngIf="regForm.get('user')?.get('login')?.errors?.['required']">
+          Имя не может быть пустым!
+        </span>
+        <span class="text-danger" *ngIf="regForm.get('user')?.get('login')?.errors?.['minlength']">
+          Имя не может быть меньше
+          {{regForm.get('user')?.get('login')?.errors?.['minlength']?.requiredLength}} символов!
+        </span>
+      </span>
+      <div class="text-field">
+        <label for="after" class="l-after">Имя</label>
+        <input type="text" class="form-control" formControlName="login"
+               inputControlDirective
+               [class.is-invalid]="regForm.get('user')?.get('login')?.invalid
+               && regForm.get('user')?.get('login')?.touched"
+               (focus)="showHelp('login')" (blur)="showHelp('login')">
+      </div>
+    </div>
+    <div class="form-group">
+      <span class="form-help-text"
+            *ngIf="regForm.get('user')?.get('email')?.untouched
+            || regForm.get('user')?.get('email')?.valid">
+        <span class="text-help" *ngIf="helpWhenInputIsInFocus.get('email')">
+          Подсказка: Введите ваше имя
+        </span>
+      </span>
+      <span class="form-help-text"
+            *ngIf="regForm.get('user')?.get('email')?.invalid
+            && regForm.get('user')?.get('email')?.touched">
+        <span class="text-danger" *ngIf="regForm.get('user')?.get('email')?.errors?.['required']">
+          Email не может быть пустым!
+        </span>
+        <span class="text-danger" *ngIf="regForm.get('user')?.get('email')?.errors?.['email']">
+          Введит корректный email!
+        </span>
+      </span>
+      <div class="text-field">
+        <label for="after" class="l-after">Email</label>
+        <input type="text" class="form-control" formControlName="email"
+               inputControlDirective
+               [class.is-invalid]="regForm.get('user')?.get('email')?.invalid
+               && regForm.get('user')?.get('email')?.touched"
+               (focus)="showHelp('email')" (blur)="showHelp('email')">
+      </div>
+    </div>
+    <div class="form-group">
+      <span class="form-help-text"
+            *ngIf="regForm.get('user')?.get('password')?.untouched
+            || regForm.get('user')?.get('password')?.valid">
+        <span class="text-help" *ngIf="helpWhenInputIsInFocus.get('password')">
+          Подсказка: Введите ваше имя
+        </span>
+      </span>
+      <span class="form-help-text"
+            *ngIf="regForm.get('user')?.get('password')?.invalid
+            && regForm.get('user')?.get('password')?.touched">
+        <span class="text-danger" *ngIf="regForm.get('user')?.get('password')?.errors?.['required']">
+          Пароль не может быть пустым!
+        </span>
+        <span class="text-danger" *ngIf="regForm.get('user')?.get('password')?.errors?.['minlength']">
+          Пароль не может быть меньше
+          {{regForm.get('user')?.get('password')?.errors?.['minlength']?.requiredLength}} символов!
+        </span>
+        <span class="text-danger" *ngIf="regForm.get('user')?.get('password')?.errors?.['pattern']">
+          Пароль должен содержать одну заглавную букву!
+        </span>
+      </span>
+      <div class="text-field">
+        <label for="after" class="l-after">Пароль</label>
+        <input type="{{visiblePas}}" class="form-control" formControlName="password"
+               inputControlDirective
+               [class.is-invalid]="regForm.get('user')?.get('password')?.invalid
+               && regForm.get('user')?.get('password')?.touched"
+               (focus)="showHelp('password')" (blur)="showHelp('password')">
+        <img src="{{iconPassword}}" alt="" class="field-icon" (click)="visiblePassword()">
+      </div>
+    </div>
+    <div class="button_block">
+      <button type="submit" class="btn" [class.btn-loading]="(visibleLoad$ | async)?.preLoader"
+              [disabled]="regForm.invalid">
+        <span *ngIf="!(visibleLoad$ | async)?.preLoader">Регистрация</span>
+        <img src="{{iconLoading}}" alt="" *ngIf="(visibleLoad$ | async)?.preLoader" class="loading-icon"
+             [@rotation]="stateRotation" (@rotation.done)="startRotation()">
+      </button>
+    </div>
+  </div>
+</form>
+
